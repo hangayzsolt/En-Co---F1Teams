@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace F1Teams.Models.Entities
+namespace F1Teams.Models.DTOs
 {
-    [Table("Teams")]
-    public class Team
+    public class TeamDto
     {
-        [Key]
         public int Id { get; set; }
         
         [Required]

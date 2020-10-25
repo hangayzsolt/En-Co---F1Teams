@@ -1,0 +1,46 @@
+﻿@model IEnumerable<F1Teams.Models.DTOs.TeamDto>
+
+@{
+    ViewBag.Title = "Teams";
+    Layout = "_Layout";
+}
+
+<h2 class="mb-3">Teams</h2>
+
+@Html.ActionLink("Add new team", "Create", "Team")
+<hr />
+@if (Model.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Name)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.FoundationYear)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.WonChampionsTitle)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.IsEntryFeePayed)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var team in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => team.Id)</td>
+                    <td>@Html.DisplayFor(model => team.Name)</td>
+                    <td>@Html.DisplayFor(model => team.FoundationYear)</td>
+                    <td>@Html.DisplayFor(model => team.WonChampionsTitle)</td>
+                    <td><label>@(team.IsEntryFeePayed ? "Yes" : "No")</label></td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = team.Id }, new { @class = "btn btn-secondary" })
+                        @Html.ActionLink("Delete", "Delete", new { id = team.Id }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No teams found.</p>
+}
+

@@ -1,5 +1,4 @@
-﻿using System;
-using F1Teams.Models.Entities;
+﻿using F1Teams.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace F1Teams.Models
