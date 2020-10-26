@@ -21,7 +21,7 @@ namespace F1Teams.Models.DTOs
         public int WonChampionsTitle { get; set; }
         
         [Required]
-        [Display(Name = "Is Entry Fee Paid?")]
+        [Display(Name = "Is entry fee paid?")]
         public bool IsEntryFeePayed { get; set; }
         
     }

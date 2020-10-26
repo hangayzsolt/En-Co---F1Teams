@@ -11,33 +11,23 @@
 <hr />
 @if (Model.Any())
 {
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.Name)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.FoundationYear)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.WonChampionsTitle)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.IsEntryFeePayed)</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var team in Model)
-            {
-                <tr>
-                    <td>@Html.DisplayFor(model => team.Id)</td>
-                    <td>@Html.DisplayFor(model => team.Name)</td>
-                    <td>@Html.DisplayFor(model => team.FoundationYear)</td>
-                    <td>@Html.DisplayFor(model => team.WonChampionsTitle)</td>
-                    <td><label>@(team.IsEntryFeePayed ? "Yes" : "No")</label></td>
-                    <td>
+    <div class="row row-cols-3">
+        @foreach (var team in Model)
+        {
+            <div class="col mb-4 col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(model => team.Name)</h5>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.FoundationYear): @Html.DisplayFor(model => team.FoundationYear)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.WonChampionsTitle): @Html.DisplayFor(model => team.WonChampionsTitle)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.IsEntryFeePayed) @(team.IsEntryFeePayed ? "Yes" : "No")</p>
                         @Html.ActionLink("Edit", "Edit", new { id = team.Id }, new { @class = "btn btn-secondary" })
-                        @Html.ActionLink("Delete", "Delete", new { id = team.Id }, new { @class = "btn btn-danger" })
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                        @Html.ActionLink("Delete", "Delete", new { id = team.Id }, new { @class = "btn btn-danger", onclick="return confirm('Are you sure to delete?')"})
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 }
 else
 {

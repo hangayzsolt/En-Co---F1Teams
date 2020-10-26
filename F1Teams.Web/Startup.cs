@@ -85,6 +85,12 @@ namespace F1Teams.Web
             if (applicationDbContext.Database.EnsureDeleted())
             {
                 applicationDbContext.Database.Migrate();
+
+                var services = app.ApplicationServices;
+                using var scope = services.GetRequiredService<IServiceScopeFactory>().CreateScope();
+
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+                userManager.CreateAsync(new IdentityUser { UserName = "admin" }, "f1teszt2018");
             }
             
             if (teamsDbContext.Database.EnsureDeleted())
