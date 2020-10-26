@@ -67,11 +67,8 @@ namespace F1Teams.Web.Controllers
         
         public async Task<IActionResult> Delete(int id)
         {
-            if (await _teamService.DeleteTeam(id, new CancellationToken()))
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            return RedirectToAction("Error", "Home");
+            await _teamService.DeleteTeam(id, new CancellationToken());
+            return RedirectToAction(nameof(Index));
         }
     }
 }

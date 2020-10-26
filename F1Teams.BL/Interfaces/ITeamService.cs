@@ -11,6 +11,6 @@ namespace F1Teams.BL.Interfaces
         Task<List<TeamDto>> ListTeams(CancellationToken token);
         Task CreateTeam(TeamDto newTeam, CancellationToken token);
         Task UpdateTeam(TeamDto teamToBeUpdated, CancellationToken token);
-        Task<bool> DeleteTeam(int id, CancellationToken token);
+        Task DeleteTeam(int id, CancellationToken token);
     }
 }

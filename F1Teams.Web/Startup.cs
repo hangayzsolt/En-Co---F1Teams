@@ -72,7 +72,7 @@ namespace F1Teams.Web
             });
 
             services.AddScoped<ITeamService, TeamService>();
-            services.AddScoped<ITeamRepository, TeamRepository>();
+            services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
             
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace F1Teams.DAL.Implementations
 {
+    //This class is not wired up
     public class TeamRepository : ITeamRepository
     {
         private readonly TeamsDbContext _teamsContext;
